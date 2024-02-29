@@ -9,16 +9,12 @@ from PIL import Image
 import sys
 import time
 
-import json
-
-with open('secret.json') as f:
-    secret = json.load(f)
-
-KEY = secret['KEY']
-ENDPOINT = secret['ENDPOINT']
+# キーとエンドポイント
+endpoint = "https://2023-12-24-ucchii.cognitiveservices.azure.com/"
+az_key = st.secrets["az_key"]
 
 #認証させる
-computervision_client = ComputerVisionClient(ENDPOINT, CognitiveServicesCredentials(KEY))
+computervision_client = ComputerVisionClient(endpoint, CognitiveServicesCredentials(az_key))
 
 def get_tags(filepath):
     local_image = open(filepath, "rb")
