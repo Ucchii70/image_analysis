@@ -3,6 +3,7 @@ from azure.cognitiveservices.vision.computervision.models import OperationStatus
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
+import streamlit as st
 from array import array
 import os
 from PIL import Image
@@ -34,7 +35,6 @@ def detect_objects(filepath):
     objects = detect_objects_results.objects
     return objects
 
-import streamlit as st
 from PIL import ImageDraw #画像に描画する
 from PIL import ImageFont #画像にテキストを描画するために使用
 
